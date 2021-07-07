@@ -1,9 +1,9 @@
-import { UserDA } from '../DAL';
-import { IUser } from '../types/types';
+import { UserDA } from '../DAL/user/userDA';
+import { IUser } from '../interface/user.interface';
 
 export class UserService
 {
-    constructor(private userDA: UserDA) {}
+    constructor(private userDA: UserDA) { }
 
     public async getUsers()
     {
@@ -15,6 +15,25 @@ export class UserService
         catch (error)
         {
             console.log(error);
+        }
+    }
+
+    public async createUser(data: IUser)
+    {
+        try
+        {
+            await this.userDA.creatUser(data);
+
+            const response = {
+                message: 'User created successfully!',
+                data
+            }
+
+            return response;
+        }
+        catch (error)
+        {
+            throw error
         }
     }
 }
