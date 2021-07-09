@@ -17,7 +17,7 @@ export class LoginService
             {
                 response = {
                     message: 'User loged in successfully!',
-                    data: loginData[0]
+                    user_data: loginData[0]
                 };
             }
             else
