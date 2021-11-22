@@ -45,6 +45,9 @@ TRUNCATE TABLE empleados;
 SELECT *
 FROM usuarios;
 
+SELECT *
+FROM notas;
+
 SET FOREIGN_KEY_CHECKS = 0; 
 TRUNCATE TABLE usuarios; 
 SET FOREIGN_KEY_CHECKS = 1;
@@ -115,7 +118,7 @@ BEGIN
 END//
 DELIMITER ;
 
-
+TRUNCATE TABLE 
 
 DELIMITER //
 CREATE PROCEDURE login
@@ -174,7 +177,7 @@ BEGIN
 END//
 DELIMITER ;
 
-CALL spCrearNota(1, 'Título de pruebs asa', 'Contenido de gegweueba');
+CALL spCrearNota(1, 'Título de pruebs', 'Contenido de prueba');
 TRUNCATE TABLE notas;
 
 

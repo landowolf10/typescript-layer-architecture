@@ -3,6 +3,22 @@ import { INote } from '../../interface/note.interface';
 
 export class NoteDA extends DBManager
 {
+    public async getAllNotes()
+    {
+        const query = 'SELECT * from notas;'
+
+        try
+        {
+           const result = await this.ReadData(query);
+           return result;
+        }
+        catch (error)
+        {
+            console.log(error);
+            throw error;
+        }
+    }
+
     public async getNotes(userID: string)
     {
         const query = 'CALL spMostrarNotas(?);';

@@ -2,6 +2,19 @@ import { NoteService } from '../service/note.service';
 import { Router, Response, Request } from 'express';
 
 export const noteRouter = (router: Router, service: NoteService): void => {
+    router.get('/', async (req: Request, res: Response) => {
+        try
+        {
+            const data = await service.getAllNotes();
+            res.status(200).send(data)
+        }
+        catch (error)
+        {
+            console.log(error);
+            res.status(500).send(error);
+        }
+    });
+
     router.get('/:userID', async (req: Request, res: Response) => {
         try
         {

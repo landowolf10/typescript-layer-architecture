@@ -5,6 +5,22 @@ export class NoteService
 {
     constructor(private noteDA: NoteDA) { }
 
+    public async getAllNotes()
+    {
+        try
+        {
+            const data = await this.noteDA.getAllNotes();
+            const noteData = JSON.parse(JSON.stringify(data));
+
+            return noteData;
+        }
+        catch (error)
+        {
+            console.log(error);
+            throw error;    
+        }
+    }
+
     public async getNotes(userID: string)
     {
         try
